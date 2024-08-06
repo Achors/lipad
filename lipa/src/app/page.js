@@ -4,10 +4,21 @@ import Dashboard from '../components/dashboard';
 
 export default function Home() {
   const [isLogin, setIsLogin] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
   };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    // Simulate successful login
+    setIsAuthenticated(true);
+  };
+
+  if (isAuthenticated) {
+    return <Dashboard />;
+  }
 
   return (
     <main className="flex min-h-screen flex-col lg:flex-row items-center justify-between p-0 lg:p-24">
