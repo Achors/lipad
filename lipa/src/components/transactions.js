@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 
-
 const generateRandomId = (length) => {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let result = '';
@@ -65,6 +64,7 @@ const sampleTransactions = [
         provider: "Airtel",
     },
 ];
+
 export default function Transactions() {
     const [selectedProvider, setSelectedProvider] = useState("Safaricom");
     const [selectedDate, setSelectedDate] = useState("All");
@@ -100,24 +100,24 @@ export default function Transactions() {
 
     return (
         <div className="flex-1 bg-white shadow-md rounded-lg p-6">
-            <h2 className="text-2xl font-semibold mb-4">Payments</h2>
-            <div className="mb-6 flex gap-4">
-                <div className="flex gap-4">
+            <h2 className="text-4xl font-semibold mb-4 text-green-600">Payments</h2>
+            <div className="flex flex-col items-center mb-6 gap-4">
+                <div className="flex gap-4 mb-4">
                     {Object.keys(balances).map(provider => (
                         <div 
                             key={provider}
-                            className={`cursor-pointer p-4 rounded-lg ${selectedProvider === provider ? 'bg-gray-200' : 'bg-gray-100'} shadow-md`}
+                            className={`cursor-pointer p-6 rounded-lg ${selectedProvider === provider ? 'bg-gray-200' : 'bg-gray-100'} shadow-md`}
                             onClick={() => handleProviderClick(provider)}
                         >
-                            <h3 className="text-lg font-semibold">{provider}</h3>
-                            <p className="text-xl">{balances[provider]}</p>
+                            <h3 className="text-2x1 font-semibold">{provider}</h3>
+                            <p className="text-6xl">{balances[provider]}</p>
                         </div>
                     ))}
                 </div>
 
                 <div className="flex gap-4">
                     <select
-                        className="p-2 border border-gray-300 rounded"
+                        className="p-2 border border-gray-300 rounded-md w-34"
                         value={selectedProvider}
                         onChange={(e) => setSelectedProvider(e.target.value)}
                     >
@@ -128,7 +128,7 @@ export default function Transactions() {
                     </select>
 
                     <select
-                        className="p-2 border border-gray-300 rounded"
+                        className="p-2 border border-gray-300 rounded-md w-32"
                         value={selectedDate}
                         onChange={(e) => setSelectedDate(e.target.value)}
                     >
@@ -139,7 +139,7 @@ export default function Transactions() {
                     </select>
 
                     <select
-                        className="p-2 border border-gray-300 rounded"
+                        className="p-2 border border-gray-300 rounded-md w-32"
                         value={selectedStatus}
                         onChange={(e) => setSelectedStatus(e.target.value)}
                     >
@@ -223,12 +223,21 @@ export default function Transactions() {
                                     className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm bg-gray-100 sm:text-sm"
                                 />
                             </div>
-                            <button
-                                type="submit"
-                                className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
-                            >
-                                PURCHASE
-                            </button>
+                            <div className="flex justify-end">
+                                <button
+                                    type="button"
+                                    className="mr-2 py-2 px-4 bg-slate-900 text-white rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                    onClick={() => setIsModalOpen(false)}
+                                >
+                                    Go Back
+                                </button>
+                                <button
+                                    type="submit"
+                                    className="py-2 px-4 bg-slate-900 text-white rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                >
+                                    Submit
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>

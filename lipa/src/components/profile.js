@@ -12,23 +12,23 @@ export default function Profile() {
 
     return (
         <div className="relative">
-            <div className="absolute top-0 right-0 mt-4 mr-4">
+            <div className="absolute top-4 right-4 flex items-center space-x-2 border  p-2 rounded-lg bg-white shadow-md">
                 <Menu as="div" className="relative inline-block text-left">
                     <div className="flex items-center space-x-2">
                         <img 
                             src={profilePicture} 
                             alt="Profile" 
-                            className="w-10 h-10 rounded-full object-cover" 
+                            className="w-10 h-10 rounded-full border-2 border-green-400 object-cover" 
                         />
                         <span className="font-medium">{username}</span>
-                        <Menu className="flex items-center text-gray-700 hover:text-gray-900">
-                            <ChevronDownIcon className="w-5 h-5 ml-1" />
-                        </Menu>
+                        <Menu.Button className="flex items-center text-gray-700 hover:text-gray-900 border-2  rounded p-1">
+                            <ChevronDownIcon className="w-5 h-5 ml-1 bg-green-400" />
+                        </Menu.Button>
                     </div>
 
-                    <Menu className="absolute right-0 mt-2 w-48 origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Menu.Items className="absolute right-0 mt-2 w-35 origin-top-right bg-transparent shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none rounded-lg">
                         <div className="py-1">
-                            <Menu>
+                            <Menu.Item>
                                 {({ active }) => (
                                     <button
                                         onClick={handleSignOut}
@@ -37,9 +37,9 @@ export default function Profile() {
                                         Sign out
                                     </button>
                                 )}
-                            </Menu>
+                            </Menu.Item>
                         </div>
-                    </Menu>
+                    </Menu.Items>
                 </Menu>
             </div>
         </div>
