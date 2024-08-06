@@ -1,4 +1,7 @@
-"use client"; 
+
+
+"use client";
+
 import React, {useState} from 'react';
 import Dashboard from '../components/dashboard';
 
@@ -12,7 +15,6 @@ export default function Home() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Simulate successful login
     setIsAuthenticated(true);
   };
 
