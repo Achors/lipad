@@ -16,9 +16,9 @@ export default function Dashboard() {
                 <div className="flex-1 flex flex-col p-6">
                     <Profile />
                     <div className="mb-6">
+                    <p className="text-md"> {currentDateTime}</p>
                         <h1 className="text-4xl font-bold mb-4">Welcome to Your Dashboard</h1>
-                        <p className="text-lg mb-4">Here you can manage your account, view statistics, and more.</p>
-                        <p className="text-md">Current Date & Time: {currentDateTime}</p>
+                        
                     </div>
                     <Transactions />
                 </div>
