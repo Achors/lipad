@@ -1,13 +1,11 @@
-
-
 "use client";
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Dashboard from '../components/dashboard';
 
 export default function Home() {
   const [isLogin, setIsLogin] = useState(true);
-  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
@@ -23,75 +21,108 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col lg:flex-row items-center justify-between p-0 lg:p-24">
-      <div className="lg:w-1/2 flex flex-col items-center justify-center bg-gradient-to-r from-green-400 to-blue-500 p-12 lg:p-24">
-        <h1 className="text-white text-4xl font-bold mb-4">Buy Airtime Anywhere in Africa</h1>
-        {/* <h1>Lipad</h1> */}
+    <main className="flex min-h-screen">
+        <div className="w-full lg:w-1/2 flex flex-col items-center justify-center bg-gradient-to-r from-slate-900 to-teal-600 p-12 lg:p-24">
+        <h1 className="text-white text-4xl font-bold mb-6">
+          Buy Airtime <br />
+          <span className="mt-6 underline">Anywhere in </span>Africa
+        </h1>
       </div>
-      <div className="lg:w-1/2 flex flex-col items-center justify-center bg-white p-12 lg:p-24">
-      {isLogin ? (
-        <>
-        <h1 className="text-3xl font-bold mb-6">Login to your account</h1>
-        <form className="w-full max-w-md">
-          <div className="flex flex-col mb-4">
-            <label className="mb-2 font-medium">Email/Username</label> <br />
-            <input 
-              type ="text"
-              placeholder="Username" 
-              required 
-              className = "p-2 border border-gray-300 round mb-4"/>
-            <label className="mb-2 font-medium">Password</label> <br />
-            <input  
-              type ="password"
-              placeholder="Password" 
-              required 
-              className = "p-2 border border-gray-300 round mb-4" />
-            </div>
-
-            <button 
-              type="submit"
-              className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
-              Login to your dashboard
-            </button>
-
-            <p className="text-gray-600">
-              Dont have a LIPAD account? Click here to {''}
-              <a href="#" onClick={toggleForm} className="text-blue-500 hover:underline"> Sign Up</a> 
-            </p>          
-        </form>
-      </>
-      ) : (
-        <>
-        <h1 className="text-3xl font-bold mb-6">Register an Account</h1>
-        <form className="w-full max-w-md">
-          <div className="flex flex-col mb-4">
-            <label className="mb-2 font-medium">Email/Username</label> <br />
-            <input 
-              type ="text"
-              placeholder="Username" 
-              required 
-              className = "p-2 border border-gray-300 round mb-4"/>
-            <label className="mb-2 font-medium">Password</label> <br />
-            <input  
-              type ="password"
-              placeholder="Password" 
-              required 
-              className = "p-2 border border-gray-300 round mb-4" />
-
-            <button 
-              type="submit"
-              className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
-              >Register Account</button>
-
-            <p className="text-gray-600">
-              Do you have a LIPAD account? Click here to 
-              <a href="#" onClick={toggleForm} className="text-blue-500 hover:underline"> Sign In</a> </p>
-
-          </div>
-        </form>
-      </>
-      )}
+      <div className="w-full lg:w-1/2 flex flex-col items-center justify-center bg-white p-12 lg:p-24">
+        {isLogin ? (
+          <>
+          <div>
+            <h1 className="text-4xl text-slate-950 font-bold mb-6">lipad</h1>
+          </div>            
+            <form className="w-full max-w-md" onSubmit={handleLogin}>
+            <h2 className="text-1xl text-Zinc-950 mb-6">Login to your account</h2>
+            <div className="flex flex-col mb-4 relative">
+  <div className="relative mb-4">
+    <label className="absolute top-2 left-2 text-green-400 transition-transform duration-300 transform -translate-y-1 scale-75 origin-top-left">
+      Email/Username
+    </label>
+    <input
+      type="text"
+      required
+      className="pt-6 pb-2 pl-2 border-b-2 border-green-400 bg-transparent focus:outline-none w-3/4 mx-auto"
+      placeholder=" "
+    />
   </div>
-  </main>
+
+  <div className="relative mb-4">
+    <label className="absolute top-2 left-2 text-gray-600 transition-transform duration-300 transform -translate-y-1 scale-75 origin-top-left">
+      Password <span className="text-red-400">*</span>
+    </label>
+    <input
+      type="password"
+      required
+      className="pt-6 pb-2 pl-2 border-b-2 border-black bg-transparent focus:outline-none w-3/4 mx-auto"
+      placeholder=" "
+    />
+  </div>
+</div>
+
+              <button
+                type="submit"
+                className="bg-slate-900 text-white p-2 rounded hover:bg-gray-00"
+              >
+                Login to your dashboard
+              </button>
+              <p className="text-gray-600 mt-4">
+                Don't have a LIPAD account? Click here to{' '}
+                <a href="#" onClick={toggleForm} className="text-green-600 underline">
+                  Sign Up
+                </a>
+              </p>
+            </form>
+          </>
+        ) : (
+          <>
+            <div>
+            <h1 className="text-4xl text-slate-950 font-bold mb-6">lipad</h1>
+          </div>            
+            <form className="w-full max-w-md" onSubmit={handleLogin}>
+            <h2 className="text-1xl text-Zinc-950 mb-6">Register an Account</h2>
+            <div className="flex flex-col mb-4 relative">
+  <div className="relative mb-4">
+    <label className="absolute top-2 left-2 text-green-400 transition-transform duration-300 transform -translate-y-1 scale-75 origin-top-left">
+      Email/Username
+    </label>
+    <input
+      type="text"
+      required
+      className="pt-6 pb-2 pl-2 border-b-2 border-green-400 bg-transparent focus:outline-none w-3/4 mx-auto"
+      placeholder=" "
+    />
+  </div>
+
+  <div className="relative mb-4">
+    <label className="absolute top-2 left-2 text-gray-600 transition-transform duration-300 transform -translate-y-1 scale-75 origin-top-left">
+      Password <span className="text-red-400">*</span>
+    </label>
+    <input
+      type="password"
+      required
+      className="pt-6 pb-2 pl-2 border-b-2 border-black bg-transparent focus:outline-none w-3/4 mx-auto"
+      placeholder=" "
+    />
+  </div>
+</div>
+          <button
+                type="submit"
+                className="bg-slate-900 text-white p-2 rounded hover:bg-gray-00">
+                Register Account
+              </button>
+              <p className="text-gray-600 mt-4">
+                Do you have a LIPAD account? Click here to{' '}
+                <a href="#" onClick={toggleForm} className="text-green-600 underline">
+                  Sign In
+                </a>
+              </p>
+            </form>
+          </>
+        )}
+      </div>
+    </main>
   );
 }
