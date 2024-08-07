@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/24/solid';
+import Image from 'next/image';
 
 export default function Profile() {
     const [username] = useState("John Doe"); 
@@ -15,7 +16,7 @@ export default function Profile() {
             <div className="absolute top-4 right-4 flex items-center space-x-2 border  p-2 rounded-lg bg-white shadow-md">
                 <Menu as="div" className="relative inline-block text-left">
                     <div className="flex items-center space-x-2">
-                        <img 
+                        <Image 
                             src={profilePicture} 
                             alt="Profile" 
                             className="w-10 h-10 rounded-full border-2 border-green-400 object-cover" 

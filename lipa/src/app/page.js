@@ -69,7 +69,7 @@ export default function Home() {
                 Login to your dashboard
               </button>
               <p className="text-gray-600 mt-4">
-                Don't have a LIPAD account? Click here to{' '}
+                Don&apos;t have a LIPAD account? Click here to{' '}
                 <a href="#" onClick={toggleForm} className="text-green-600 underline">
                   Sign Up
                 </a>
