@@ -21,14 +21,14 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen">
-        <div className="w-full lg:w-1/2 flex flex-col items-center justify-center bg-gradient-to-r from-slate-900 to-teal-600 p-12 lg:p-24">
-        <h1 className="text-white text-4xl font-bold mb-6">
+    <main className="flex min-h-screen ">
+        <div className="w-full lg:w-1/3 flex flex-col items-center justify-center bg-gradient-to-r from-slate-900 to-teal-600 p-12 lg:p-24">
+        <h1 className="text-white text-3xl font-bold mb-6">
           Buy Airtime <br />
           <span className="mt-6 underline">Anywhere in </span>Africa
         </h1>
       </div>
-      <div className="w-full lg:w-1/2 flex flex-col items-center justify-center bg-white p-12 lg:p-24">
+      <div className="w-full lg:w-2/3 flex flex-col items-center justify-center bg-white p-12 lg:p-24">
         {isLogin ? (
           <>
           <div>
