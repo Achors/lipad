@@ -5,6 +5,8 @@ import { UsersModule } from './users/users.module';
 import { TransactionsModule } from './transactions/transactions.module';
 import { User } from './users/user.entity';
 import { Transaction } from './transactions/transaction.entity';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 
 @Module({
   imports: [
@@ -18,12 +20,13 @@ import { Transaction } from './transactions/transaction.entity';
       url: `postgres://tsdbadmin:p6jcimiim9p7znfu@g89s43w0eo.oshryr3oyc.tsdb.cloud.timescale.com:39483/tsdb`,
       entities: [User, Transaction],
       synchronize: true,
+      logging: true,
     }),
     AuthModule,
     UsersModule,
     TransactionsModule,
   ],
-  controllers: [],
-  providers: [],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

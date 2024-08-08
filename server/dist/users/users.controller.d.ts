@@ -4,8 +4,6 @@ export declare class UsersController {
     constructor(usersService: UsersService);
     getProfile(req: any): Promise<import("./user.entity").User>;
     updateProfile(req: any, profileDto: {
-        firstName: string;
-        lastName: string;
-        email: string;
+        username: string;
     }): Promise<import("./user.entity").User>;
 }

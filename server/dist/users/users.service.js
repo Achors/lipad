@@ -18,22 +18,22 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const user_entity_1 = require("./user.entity");
 let UsersService = class UsersService {
-    constructor(usersRepository) {
-        this.usersRepository = usersRepository;
+    constructor(userRepository) {
+        this.userRepository = userRepository;
     }
     async findOne(username) {
-        return this.usersRepository.findOne({ where: { username } });
+        return this.userRepository.findOne({ where: { username } });
     }
     async create(user) {
-        const newUser = this.usersRepository.create(user);
-        return this.usersRepository.save(newUser);
+        const newUser = this.userRepository.create(user);
+        return this.userRepository.save(newUser);
     }
     async getProfile(userId) {
-        return this.usersRepository.findOne({ where: { id: userId } });
+        return this.userRepository.findOne({ where: { id: userId } });
     }
     async updateProfile(userId, profileDto) {
-        await this.usersRepository.update(userId, profileDto);
-        return this.usersRepository.findOne({ where: { id: userId } });
+        await this.userRepository.update(userId, { username: profileDto.username });
+        return this.userRepository.findOne({ where: { id: userId } });
     }
 };
 exports.UsersService = UsersService;

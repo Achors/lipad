@@ -14,6 +14,8 @@ const users_module_1 = require("./users/users.module");
 const transactions_module_1 = require("./transactions/transactions.module");
 const user_entity_1 = require("./users/user.entity");
 const transaction_entity_1 = require("./transactions/transaction.entity");
+const app_controller_1 = require("./app.controller");
+const app_service_1 = require("./app.service");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -25,13 +27,14 @@ exports.AppModule = AppModule = __decorate([
                 url: `postgres://tsdbadmin:p6jcimiim9p7znfu@g89s43w0eo.oshryr3oyc.tsdb.cloud.timescale.com:39483/tsdb`,
                 entities: [user_entity_1.User, transaction_entity_1.Transaction],
                 synchronize: true,
+                logging: true,
             }),
             auth_module_1.AuthModule,
             users_module_1.UsersModule,
             transactions_module_1.TransactionsModule,
         ],
-        controllers: [],
-        providers: [],
+        controllers: [app_controller_1.AppController],
+        providers: [app_service_1.AppService],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map
