@@ -12,6 +12,6 @@ export class Transaction {
   @Column()
   type: string;
 
-  @ManyToOne(() => User, user => user.transactions)
+  @ManyToOne(() => User, (user) => user.transactions)
   user: User;
 }

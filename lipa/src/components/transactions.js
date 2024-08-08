@@ -99,25 +99,25 @@ export default function Transactions() {
     };
 
     return (
-        <div className="flex-1 bg-white shadow-md rounded-lg p-6">
-            <h2 className="text-4xl font-semibold mb-4 text-green-600">Payments</h2>
-            <div className="flex flex-col items-center mb-6 gap-4">
-                <div className="flex gap-4 mb-4">
+        <div className="flex-1 bg-white shadow-md rounded-lg p-4 sm:p-6 lg:p-8">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-4 text-green-600">Payments</h2>
+            <div className="flex flex-col sm:flex-row items-center mb-6 gap-4">
+                <div className="flex flex-wrap gap-4 mb-4">
                     {Object.keys(balances).map(provider => (
                         <div 
                             key={provider}
-                            className={`cursor-pointer p-6 rounded-lg ${selectedProvider === provider ? 'bg-gray-200' : 'bg-gray-100'} shadow-md`}
+                            className={`cursor-pointer p-4 sm:p-6 rounded-lg ${selectedProvider === provider ? 'bg-gray-200' : 'bg-gray-100'} shadow-md w-full sm:w-1/3`}
                             onClick={() => handleProviderClick(provider)}
                         >
-                            <h3 className="text-2x1 font-semibold">{provider}</h3>
-                            <p className="text-6xl">{balances[provider]}</p>
+                            <h3 className="text-xl sm:text-2xl font-semibold">{provider}</h3>
+                            <p className="text-4xl sm:text-5xl">{balances[provider]}</p>
                         </div>
                     ))}
                 </div>
 
-                <div className="flex gap-4">
+                <div className="flex flex-col sm:flex-row gap-4">
                     <select
-                        className="p-2 border border-gray-300 rounded-md w-34"
+                        className="p-2 border border-gray-300 rounded-md w-full sm:w-1/4"
                         value={selectedProvider}
                         onChange={(e) => setSelectedProvider(e.target.value)}
                     >
@@ -128,7 +128,7 @@ export default function Transactions() {
                     </select>
 
                     <select
-                        className="p-2 border border-gray-300 rounded-md w-32"
+                        className="p-2 border border-gray-300 rounded-md w-full sm:w-1/4"
                         value={selectedDate}
                         onChange={(e) => setSelectedDate(e.target.value)}
                     >
@@ -139,7 +139,7 @@ export default function Transactions() {
                     </select>
 
                     <select
-                        className="p-2 border border-gray-300 rounded-md w-32"
+                        className="p-2 border border-gray-300 rounded-md w-full sm:w-1/4"
                         value={selectedStatus}
                         onChange={(e) => setSelectedStatus(e.target.value)}
                     >
@@ -150,40 +150,41 @@ export default function Transactions() {
                     </select>
                 </div>
             </div>
-            
-            
-            <table className="min-w-full bg-white border border-gray-200">
-                <thead>
-                    <tr className="border-b bg-gray-100">
-                        <th className="px-4 py-2 text-left text-gray-700">Transaction ID</th>
-                        <th className="px-4 py-2 text-left text-gray-700">Payment Method</th>
-                        <th className="px-4 py-2 text-left text-gray-700">Mobile Number</th>
-                        <th className="px-4 py-2 text-left text-gray-700">Amount</th>
-                        <th className="px-4 py-2 text-left text-gray-700">Date</th>
-                        <th className="px-4 py-2 text-left text-gray-700">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {filteredTransactions.map((transaction) => (
-                        <tr key={transaction.id} className="border-b">
-                            <td className="px-4 py-2 text-gray-700">{transaction.id}</td>
-                            <td className="px-4 py-2 text-gray-700">{transaction.method}</td>
-                            <td className="px-4 py-2 text-gray-700">{transaction.mobileNumber}</td>
-                            <td className="px-4 py-2 text-gray-700">{transaction.amount}</td>
-                            <td className="px-4 py-2 text-gray-700">{transaction.date}</td>
-                            <td className={`px-4 py-2 ${transaction.status === 'Accepted' ? 'text-green-600' : transaction.status === 'Failed' ? 'text-red-600' : 'text-gray-600'}`}>
-                                {transaction.status}
-                            </td>
+
+            <div className="overflow-x-auto">
+                <table className="min-w-full bg-white border border-gray-200">
+                    <thead>
+                        <tr className="border-b bg-gray-100">
+                            <th className="px-2 py-1 sm:px-4 sm:py-2 text-left text-gray-700">Transaction ID</th>
+                            <th className="px-2 py-1 sm:px-4 sm:py-2 text-left text-gray-700">Payment Method</th>
+                            <th className="px-2 py-1 sm:px-4 sm:py-2 text-left text-gray-700">Mobile Number</th>
+                            <th className="px-2 py-1 sm:px-4 sm:py-2 text-left text-gray-700">Amount</th>
+                            <th className="px-2 py-1 sm:px-4 sm:py-2 text-left text-gray-700">Date</th>
+                            <th className="px-2 py-1 sm:px-4 sm:py-2 text-left text-gray-700">Status</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {filteredTransactions.map((transaction) => (
+                            <tr key={transaction.id} className="border-b">
+                                <td className="px-2 py-1 sm:px-4 sm:py-2 text-gray-700">{transaction.id}</td>
+                                <td className="px-2 py-1 sm:px-4 sm:py-2 text-gray-700">{transaction.method}</td>
+                                <td className="px-2 py-1 sm:px-4 sm:py-2 text-gray-700">{transaction.mobileNumber}</td>
+                                <td className="px-2 py-1 sm:px-4 sm:py-2 text-gray-700">{transaction.amount}</td>
+                                <td className="px-2 py-1 sm:px-4 sm:py-2 text-gray-700">{transaction.date}</td>
+                                <td className={`px-2 py-1 sm:px-4 sm:py-2 ${getStatusClass(transaction.status)}`}>
+                                    {transaction.status}
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
 
             <Dialog open={isModalOpen} onClose={() => setIsModalOpen(false)}>
                 <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true" />
                 <div className="fixed inset-0 flex items-center justify-center p-4">
-                    <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
-                        <h3 className="text-lg font-semibold mb-4">New Transaction</h3>
+                    <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 max-w-sm w-full">
+                        <h3 className="text-lg sm:text-xl font-semibold mb-4">New Transaction</h3>
                         <form>
                             <div className="mb-4">
                                 <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700">Phone Number</label>

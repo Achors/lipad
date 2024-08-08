@@ -28,7 +28,7 @@ __decorate([
     __metadata("design:type", String)
 ], Transaction.prototype, "type", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(() => user_entity_1.User, user => user.transactions),
+    (0, typeorm_1.ManyToOne)(() => user_entity_1.User, (user) => user.transactions),
     __metadata("design:type", user_entity_1.User)
 ], Transaction.prototype, "user", void 0);
 exports.Transaction = Transaction = __decorate([

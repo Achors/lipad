@@ -1,4 +1,12 @@
-import { Controller, Post, Get, Param, Body, Req, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Get,
+  Param,
+  Body,
+  Req,
+  UseGuards,
+} from '@nestjs/common';
 import { TransactionsService } from './transactions.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
@@ -8,8 +16,14 @@ export class TransactionsController {
 
   @UseGuards(JwtAuthGuard)
   @Post()
-  async createTransaction(@Req() req, @Body() transactionDto: { amount: number; type: string }) {
-    return this.transactionsService.createTransaction(req.user.userId, transactionDto);
+  async createTransaction(
+    @Req() req,
+    @Body() transactionDto: { amount: number; type: string },
+  ) {
+    return this.transactionsService.createTransaction(
+      req.user.userId,
+      transactionDto,
+    );
   }
 
   @UseGuards(JwtAuthGuard)
