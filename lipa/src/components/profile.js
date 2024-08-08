@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Menu } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/24/solid';
-// import Image from 'next/image';
 
 export default function Profile() {
     const [username] = useState("John Doe"); 

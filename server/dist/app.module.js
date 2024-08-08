@@ -22,11 +22,7 @@ exports.AppModule = AppModule = __decorate([
         imports: [
             typeorm_1.TypeOrmModule.forRoot({
                 type: 'postgres',
-                host: 'localhost',
-                port: 5432,
-                username: 'lipad_user',
-                password: 'your_password',
-                database: 'lipad',
+                url: `postgres://tsdbadmin:p6jcimiim9p7znfu@g89s43w0eo.oshryr3oyc.tsdb.cloud.timescale.com:39483/tsdb`,
                 entities: [user_entity_1.User, transaction_entity_1.Transaction],
                 synchronize: true,
             }),

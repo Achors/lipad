@@ -21,7 +21,7 @@ let AuthService = class AuthService {
     async validateUser(username, pass) {
         const user = await this.usersService.findOne(username);
         if (user && user.password === pass) {
-            const { password, ...result } = user;
+            const { password: _, ...result } = user;
             return result;
         }
         return null;

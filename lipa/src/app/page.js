@@ -5,7 +5,7 @@ import Dashboard from '../components/dashboard';
 
 export default function Home() {
   const [isLogin, setIsLogin] = useState(true);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
@@ -64,7 +64,7 @@ export default function Home() {
 
               <button
                 type="submit"
-                className="bg-slate-900 text-white p-2 rounded hover:bg-gray-00"
+                className="bg-slate-900 text-white p-2 rounded hover:bg-gray-00 "
               >
                 Login to your dashboard
               </button>

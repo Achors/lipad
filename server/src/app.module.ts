@@ -10,11 +10,12 @@ import { Transaction } from './transactions/transaction.entity';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'lipad_user',
-      password: 'your_password',
-      database: 'lipad',
+      // host: 'localhost',
+      // port: 5432,
+      // username: 'postgres',
+      // password: 'Antidote',
+      // database: 'lipad_test',
+      url: `postgres://tsdbadmin:p6jcimiim9p7znfu@g89s43w0eo.oshryr3oyc.tsdb.cloud.timescale.com:39483/tsdb`,
       entities: [User, Transaction],
       synchronize: true,
     }),
