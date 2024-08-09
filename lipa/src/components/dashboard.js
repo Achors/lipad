@@ -8,7 +8,7 @@ export default function Dashboard() {
 
   return (
     <main className="flex min-h-screen">
-      <Sidebar className="w-1/4 bg-gray-800 text-white flex-shrink-0 h-screen" />
+      <Sidebar />
       <div className="flex-1 flex flex-col bg-gray-100 p-6">
         <Profile />
         <div className="mb-6">
