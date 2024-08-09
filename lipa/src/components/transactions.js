@@ -100,7 +100,7 @@ export default function Transactions() {
 
     return (
         <div className="flex-1 bg-white shadow-md rounded-lg p-4 sm:p-6 lg:p-8">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-4 text-green-600">Payments</h2>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-4 text-slate-950">Payments</h2>
             
             <div className="flex flex-col">
                 <div className="flex flex-wrap gap-4 mb-4">
