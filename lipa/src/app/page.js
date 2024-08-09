@@ -57,14 +57,13 @@ export default function Home() {
   }
 
   return (
-    <main className="flex flex-col min-h-screen lg:flex-row">
-      <div className="w-full lg:w-1/2 flex flex-col items-center justify-center bg-gradient-to-r from-slate-900 to-teal-600 p-8 lg:p-12 relative">
+    <main className="flex flex-col min-h-screen overflow-hidden lg:flex-row">
+      <div className="w-full lg:w-1/2 flex flex-col items-center justify-center bg-gradient-to-r from-slate-900 to-teal-600 p-8 lg:p-12 relative h-screen">
         <div className="absolute inset-0 z-0 flex items-center justify-center">
           <Image
             src="/africa.png"
             alt="Background"
-            width={756}
-            height={800}
+            layout="fill"
             className="object-cover"
           />
         </div>
@@ -75,9 +74,8 @@ export default function Home() {
             </span>
              <span className="inline-block px-2"> Africa</span>
           </h1>
-
       </div>
-      <div className="w-full lg:w-1/2 flex flex-col items-center justify-center bg-white p-8 lg:p-12">
+      <div className="w-full lg:w-1/2 flex flex-col items-center justify-center bg-white p-8 lg:p-12 h-screen">
         {isLogin ? (
           <>
             <div className="mb-6 flex items-center justify-center">
@@ -124,11 +122,11 @@ export default function Home() {
               </div>
               <button
                 type="submit"
-                className="bg-slate-900 text-white p-2 rounded hover:bg-gray-700 w-full"
+                className="bg-slate-900 text-white py-2 px-4 rounded-full hover:bg-gray-700 w-full"
               >
                 Login to your dashboard
               </button>
-              <p className="text-gray-600 mt-4 text-center">
+              <p className="text-slate-900 mt-4 text-center">
                 Don&apos;t have a LIPAD account? Click here to{' '}
                 <a href="#" onClick={toggleForm} className="text-green-600 underline">
                   Sign Up
@@ -182,11 +180,11 @@ export default function Home() {
               </div>
               <button
                 type="submit"
-                className="bg-slate-900 text-white p-2 rounded hover:bg-gray-700 w-full"
+                className="bg-slate-900 text-white py-2 px-4 rounded-full hover:bg-gray-700 w-full"
               >
                 Register Account
               </button>
-              <p className="text-gray-600 mt-4 text-center">
+              <p className="text-slate-900 mt-4 text-center">
                 Do you have a LIPAD account? Click here to{' '}
                 <a href="#" onClick={toggleForm} className="text-green-600 underline">
                   Sign In
