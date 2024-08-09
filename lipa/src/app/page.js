@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import Dashboard from '../components/dashboard';
+import Image from 'next/image';
+
 
 export default function Home() {
   const [isLogin, setIsLogin] = useState(true);
@@ -58,6 +60,15 @@ export default function Home() {
   return (
     <main className="flex flex-col min-h-screen lg:flex-row">
       <div className="w-full lg:w-1/2 flex flex-col items-center justify-center bg-gradient-to-r from-slate-900 to-teal-600 p-8 lg:p-12">
+      <div className="absolute inset-0 z-0 flex items-center justify-left">
+          <Image
+            src="/africa.png"
+            alt="Background"
+            width={700}
+            height={700}
+            className="object-cover"
+          />
+        </div>
         <h1 className="text-white text-2xl lg:text-3xl font-bold mb-4 lg:mb-6 text-center lg:text-left">
           Buy Airtime <br />
           <span className="mt-4 underline">Anywhere in </span>Africa
@@ -66,8 +77,14 @@ export default function Home() {
       <div className="w-full lg:w-1/2 flex flex-col items-center justify-center bg-white p-8 lg:p-12">
         {isLogin ? (
           <>
-            <div className="mb-6">
-              <h1 className="text-3xl lg:text-4xl text-slate-950 font-bold">lipad</h1>
+            <div className="mb-6 flex items-center justify-center">
+                <Image 
+                    src="/logo.png"
+                    alt="Lipad Logo"
+                    width={128}
+                    height={128}  
+                    className="w-32 lg:w-40 h-auto" 
+                />
             </div>            
             <form className="w-full max-w-md" onSubmit={handleLogin}>
               <h2 className="text-lg lg:text-xl text-Zinc-950 mb-4">Login to your account</h2>
@@ -118,8 +135,14 @@ export default function Home() {
           </>
         ) : (
           <>
-            <div className="mb-6">
-              <h1 className="text-3xl lg:text-4xl text-slate-950 font-bold">lipad</h1>
+             <div className="mb-6 flex items-center justify-center">
+                <Image 
+                    src="/logo.png"
+                    alt="Lipad Logo"
+                    width={128}
+                    height={128}  
+                    className="w-32 lg:w-40 h-auto" 
+                />
             </div>            
             <form className="w-full max-w-md" onSubmit={handleRegister}>
               <h2 className="text-lg lg:text-xl text-Zinc-950 mb-4">Register an Account</h2>
