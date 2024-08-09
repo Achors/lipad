@@ -12,9 +12,9 @@ const generateRandomId = (length) => {
 };
 
 const balances = {
-    Safaricom: "$100.00",
-    Airtel: "$50.00",
-    Telkom: "$75.00",
+    Safaricom: "Ksh100.00",
+    Airtel: "Ksh50.00",
+    Telkom: "Ksh75.00",
 };
 
 const sampleTransactions = [

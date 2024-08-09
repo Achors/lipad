@@ -5,15 +5,50 @@ import Dashboard from '../components/dashboard';
 
 export default function Home() {
   const [isLogin, setIsLogin] = useState(true);
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState({ email: '', password: '' });
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
   };
 
+  const validateForm = () => {
+    let emailError = '';
+    let passwordError = '';
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailPattern.test(email)) {
+      emailError = 'Please enter a valid email.';
+    }
+
+    if (!password || password.length < 6) {
+      passwordError = 'Password must be at least 6 characters long.';
+    }
+
+    if (emailError || passwordError) {
+      setErrors({ email: emailError, password: passwordError });
+      return false;
+    }
+
+    return true;
+  };
+
   const handleLogin = (e) => {
     e.preventDefault();
-    setIsAuthenticated(true);
+    if (validateForm()) {
+      setIsAuthenticated(true);
+    }
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      // API for registering user comes here)
+      alert("Registration successful! Please log in.");
+      setIsLogin(true); 
+    }
   };
 
   if (isAuthenticated) {
@@ -43,10 +78,13 @@ export default function Home() {
                   </label>
                   <input
                     type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="pt-6 pb-2 pl-2 border-b-2 border-green-400 bg-transparent focus:outline-none w-full"
+                    className={`pt-6 pb-2 pl-2 border-b-2 ${errors.email ? 'border-red-400' : 'border-green-400'} bg-transparent focus:outline-none w-full`}
                     placeholder=" "
                   />
+                  {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
                 </div>
 
                 <div className="relative mb-4">
@@ -55,10 +93,13 @@ export default function Home() {
                   </label>
                   <input
                     type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
-                    className="pt-6 pb-2 pl-2 border-b-2 border-black bg-transparent focus:outline-none w-full"
+                    className={`pt-6 pb-2 pl-2 border-b-2 ${errors.password ? 'border-red-400' : 'border-black'} bg-transparent focus:outline-none w-full`}
                     placeholder=" "
                   />
+                  {errors.password && <p className="text-red-400 text-xs mt-1">{errors.password}</p>}
                 </div>
               </div>
               <button
@@ -80,7 +121,7 @@ export default function Home() {
             <div className="mb-6">
               <h1 className="text-3xl lg:text-4xl text-slate-950 font-bold">lipad</h1>
             </div>            
-            <form className="w-full max-w-md" onSubmit={handleLogin}>
+            <form className="w-full max-w-md" onSubmit={handleRegister}>
               <h2 className="text-lg lg:text-xl text-Zinc-950 mb-4">Register an Account</h2>
               <div className="flex flex-col mb-4 relative">
                 <div className="relative mb-4">
@@ -89,10 +130,13 @@ export default function Home() {
                   </label>
                   <input
                     type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="pt-6 pb-2 pl-2 border-b-2 border-green-400 bg-transparent focus:outline-none w-full"
+                    className={`pt-6 pb-2 pl-2 border-b-2 ${errors.email ? 'border-red-400' : 'border-green-400'} bg-transparent focus:outline-none w-full`}
                     placeholder=" "
                   />
+                  {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
                 </div>
 
                 <div className="relative mb-4">
@@ -101,10 +145,13 @@ export default function Home() {
                   </label>
                   <input
                     type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
-                    className="pt-6 pb-2 pl-2 border-b-2 border-black bg-transparent focus:outline-none w-full"
+                    className={`pt-6 pb-2 pl-2 border-b-2 ${errors.password ? 'border-red-400' : 'border-black'} bg-transparent focus:outline-none w-full`}
                     placeholder=" "
                   />
+                  {errors.password && <p className="text-red-400 text-xs mt-1">{errors.password}</p>}
                 </div>
               </div>
               <button
