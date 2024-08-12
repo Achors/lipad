@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Dashboard from '../components/dashboard';
 import Image from 'next/image';
+import axios from 'axios';
 
 export default function Home() {
   const [isLogin, setIsLogin] = useState(true);
@@ -39,6 +40,12 @@ export default function Home() {
   const handleLogin = (e) => {
     e.preventDefault();
     if (validateForm()) {
+      const api = axios.create({
+        baseURL: 'http:localhost:3000',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
       setIsAuthenticated(true);
     }
   };
@@ -46,7 +53,13 @@ export default function Home() {
   const handleRegister = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // API for registering user comes here
+      const api = axios.create({
+        baseURL: 'http:localhost:3000',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
       alert("Registration successful! Please log in.");
       setIsLogin(true); 
     }
