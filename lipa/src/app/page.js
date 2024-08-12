@@ -57,7 +57,7 @@ export default function Home() {
   }
 
   return (
-    <main className="flex flex-col min-h-screen overflow-hidden lg:flex-row">
+    <main className="flex flex-col min-h-screen overflow-hidden lg:flex-column">
       <div className="w-full lg:w-1/2 flex flex-col items-center justify-center bg-gradient-to-r from-slate-900 to-teal-600 p-8 lg:p-12 relative h-screen">
         <div className="absolute inset-0 z-0 flex items-center justify-center">
           <Image
